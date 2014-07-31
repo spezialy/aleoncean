@@ -13,6 +13,7 @@ package eu.aleon.aleoncean.device.remote;
 import eu.aleon.aleoncean.device.DeviceParameter;
 import eu.aleon.aleoncean.device.DeviceParameterUpdatedInitiation;
 import eu.aleon.aleoncean.device.DeviceRPS;
+import eu.aleon.aleoncean.device.IllegalDeviceParameterException;
 import eu.aleon.aleoncean.device.RemoteDevice;
 import eu.aleon.aleoncean.packet.EnOceanId;
 import eu.aleon.aleoncean.packet.radio.RadioPacketRPS;
@@ -74,7 +75,7 @@ public class RemoteDeviceEEPF61001 extends DeviceRPS implements RemoteDevice {
     }
 
     @Override
-    public Object getByParameter(DeviceParameter parameter) throws IllegalArgumentException {
+    public Object getByParameter(DeviceParameter parameter) throws IllegalDeviceParameterException {
         switch (parameter) {
             case WINDOW_HANDLE_POSITION:
                 return getWindowHandlePosition();
@@ -84,7 +85,7 @@ public class RemoteDeviceEEPF61001 extends DeviceRPS implements RemoteDevice {
     }
 
     @Override
-    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalArgumentException {
+    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalDeviceParameterException {
         assert DeviceParameter.getSupportedClass(parameter).isAssignableFrom(value.getClass());
         super.setByParameter(parameter, value);
     }

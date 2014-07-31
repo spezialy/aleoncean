@@ -12,6 +12,7 @@ package eu.aleon.aleoncean.device.remote;
 
 import eu.aleon.aleoncean.device.DeviceParameter;
 import eu.aleon.aleoncean.device.DeviceParameterUpdatedInitiation;
+import eu.aleon.aleoncean.device.IllegalDeviceParameterException;
 import eu.aleon.aleoncean.device.RemoteDevice;
 import eu.aleon.aleoncean.device.StandardDevice;
 import eu.aleon.aleoncean.packet.EnOceanId;
@@ -97,7 +98,7 @@ public class RemoteDeviceEEPA50401 extends StandardDevice implements RemoteDevic
     }
 
     @Override
-    public Object getByParameter(DeviceParameter parameter) throws IllegalArgumentException {
+    public Object getByParameter(DeviceParameter parameter) throws IllegalDeviceParameterException {
         switch (parameter) {
             case HUMIDITY_PERCENT:
                 return getHumidity();
@@ -109,7 +110,7 @@ public class RemoteDeviceEEPA50401 extends StandardDevice implements RemoteDevic
     }
 
     @Override
-    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalArgumentException {
+    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalDeviceParameterException {
         assert DeviceParameter.getSupportedClass(parameter).isAssignableFrom(value.getClass());
         super.setByParameter(parameter, value);
     }

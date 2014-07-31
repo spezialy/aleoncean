@@ -248,7 +248,7 @@ public abstract class DeviceRPSLightAndBlindControlAppStyle extends DeviceRPS {
     }
 
     @Override
-    public Object getByParameter(DeviceParameter parameter) throws IllegalArgumentException {
+    public Object getByParameter(DeviceParameter parameter) throws IllegalDeviceParameterException {
         switch (parameter) {
             case BUTTON_DIM_A:
                 return actionA;
@@ -291,7 +291,7 @@ public abstract class DeviceRPSLightAndBlindControlAppStyle extends DeviceRPS {
     }
 
     @Override
-    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalArgumentException {
+    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalDeviceParameterException {
         assert DeviceParameter.getSupportedClass(parameter).isAssignableFrom(value.getClass());
         if (this instanceof LocalDevice) {
             switch (parameter) {

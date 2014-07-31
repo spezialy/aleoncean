@@ -133,13 +133,13 @@ public abstract class StandardDevice implements Device {
     }
 
     @Override
-    public Object getByParameter(DeviceParameter parameter) throws IllegalArgumentException {
-        throw new IllegalArgumentException(String.format("Given parameter (%s) is not supported.", parameter));
+    public Object getByParameter(DeviceParameter parameter) throws IllegalDeviceParameterException {
+        throw new IllegalDeviceParameterException(String.format("Given parameter (%s) is not supported.", parameter));
     }
 
     @Override
-    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalArgumentException {
-        throw new IllegalArgumentException(String.format("Given parameter (%s) is not supported.", parameter));
+    public void setByParameter(DeviceParameter parameter, Object value) throws IllegalDeviceParameterException {
+        throw new IllegalDeviceParameterException(String.format("Given parameter (%s) is not supported.", parameter));
     }
 
     protected abstract void fillParameters(final Set<DeviceParameter> params);

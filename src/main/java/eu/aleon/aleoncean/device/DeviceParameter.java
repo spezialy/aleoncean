@@ -133,12 +133,12 @@ public enum DeviceParameter {
         }
     }
 
-    public static Class<?> getSupportedClass(final DeviceParameter parameter) {
+    public static Class<?> getSupportedClass(final DeviceParameter parameter) throws IllegalDeviceParameterException {
         final Info info = Infos.getByParameter(parameter);
         if (info != null) {
             return info.getSupportedClass();
         } else {
-            throw new IllegalArgumentException(String.format("Unknown device parameter: %s", parameter));
+            throw new IllegalDeviceParameterException(String.format("Unknown device parameter: %s", parameter));
         }
     }
 

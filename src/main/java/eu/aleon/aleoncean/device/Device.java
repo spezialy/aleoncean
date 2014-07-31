@@ -20,13 +20,41 @@ import java.util.Set;
  */
 public interface Device extends Comparable<Device> {
 
+    /**
+     * Parse a radio packet.
+     *
+     * The caller have to check if the radio packet is intended to be used by this device (e.g. addressed to it).
+     *
+     * @param packet The radio packet, that should be parsed by the device.
+     */
     public void parseRadioPacket(final RadioPacket packet);
 
+    /**
+     * Get a set of available device parameters.
+     *
+     * A parameter could be used to fetch or set device values.
+     *
+     * @return Return a set of all supported parameters.
+     */
     public Set<DeviceParameter> getParameters();
 
-    public Object getByParameter(final DeviceParameter parameter) throws IllegalArgumentException;
+    /**
+     * Get a value by using device parameter.
+     *
+     * @param parameter The parameter that value should be returned.
+     * @return Return the value of the device parameter.
+     * @throws IllegalDeviceParameterException if the device parameter could not be handled.
+     */
+    public Object getByParameter(final DeviceParameter parameter) throws IllegalDeviceParameterException;
 
-    public void setByParameter(final DeviceParameter parameter, final Object value) throws IllegalArgumentException;
+    /**
+     * Set a value by using device parameter.
+     * 
+     * @param parameter The parameter that value should be changed.
+     * @param value The value that should be set.
+     * @throws IllegalDeviceParameterException if the device parameter could not be handled.
+     */
+    public void setByParameter(final DeviceParameter parameter, final Object value) throws IllegalDeviceParameterException;
 
     /**
      * Get the EnOcean address of the remote / real device.
