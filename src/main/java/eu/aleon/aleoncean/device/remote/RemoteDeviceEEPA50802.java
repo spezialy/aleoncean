@@ -145,25 +145,7 @@ public class RemoteDeviceEEPA50802 extends StandardDevice implements RemoteDevic
     @Override
     public void setByParameter(DeviceParameter parameter, Object value) throws IllegalDeviceParameterException {
         assert DeviceParameter.getSupportedClass(parameter).isAssignableFrom(value.getClass());
-        switch (parameter) {
-            case SUPPLY_VOLTAGE_V:
-                setSupplyVoltage(DeviceParameterUpdatedInitiation.SET_PARAMETER, (Double) value);
-                break;
-            case ILLUMINATION_LUX:
-                setIllumination(DeviceParameterUpdatedInitiation.SET_PARAMETER, (Double) value);
-                break;
-            case TEMPERATURE_CELSIUS:
-                setTemperature(DeviceParameterUpdatedInitiation.SET_PARAMETER, (Double) value);
-                break;
-            case MOTION:
-                setMotion(DeviceParameterUpdatedInitiation.SET_PARAMETER, (Boolean) value);
-                break;
-            case OCCUPANCY_BUTTON:
-                setOccupancyButtonPressed(DeviceParameterUpdatedInitiation.SET_PARAMETER, (Boolean) value);
-                break;
-            default:
-                super.setByParameter(parameter, value);
-        }
+        super.setByParameter(parameter, value);
     }
 
 }
