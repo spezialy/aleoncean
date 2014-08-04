@@ -49,9 +49,9 @@ public interface Device extends Comparable<Device> {
 
     /**
      * Set a value by using device parameter.
-     * 
+     *
      * @param parameter The parameter that value should be changed.
-     * @param value The value that should be set.
+     * @param value     The value that should be set.
      * @throws IllegalDeviceParameterException if the device parameter could not be handled.
      */
     public void setByParameter(final DeviceParameter parameter, final Object value) throws IllegalDeviceParameterException;
