@@ -10,8 +10,8 @@
  */
 package eu.aleon.aleoncean.packet.radio.userdata;
 
-import eu.aleon.aleoncean.values.Unit;
 import eu.aleon.aleoncean.util.CalculationUtil;
+import eu.aleon.aleoncean.values.Unit;
 
 /**
  *

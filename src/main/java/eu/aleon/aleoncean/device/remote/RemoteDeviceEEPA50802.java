@@ -47,7 +47,7 @@ public class RemoteDeviceEEPA50802 extends StandardDevice implements RemoteDevic
     }
 
     public void setSupplyVoltage(final DeviceParameterUpdatedInitiation initiation, final Double supplyVoltage) {
-        final Double oldSupplyVoltage = supplyVoltage;
+        final Double oldSupplyVoltage = this.supplyVoltage;
         this.supplyVoltage = supplyVoltage;
         fireParameterChanged(DeviceParameter.SUPPLY_VOLTAGE_V, initiation, oldSupplyVoltage, supplyVoltage);
     }
