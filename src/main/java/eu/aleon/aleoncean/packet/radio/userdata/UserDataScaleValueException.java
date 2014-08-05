@@ -16,6 +16,8 @@ package eu.aleon.aleoncean.packet.radio.userdata;
  */
 public class UserDataScaleValueException extends Exception {
 
+    private static final long serialVersionUID = -1145068221266062874L;
+
     public UserDataScaleValueException() {
         super();
     }

@@ -16,4 +16,6 @@ package eu.aleon.aleoncean.packet.response;
  */
 public class UnknownResponseException extends Exception {
 
+    private static final long serialVersionUID = -2918511087415551367L;
+
 }
