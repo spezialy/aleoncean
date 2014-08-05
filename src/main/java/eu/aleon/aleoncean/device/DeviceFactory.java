@@ -10,14 +10,6 @@
  */
 package eu.aleon.aleoncean.device;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NavigableMap;
-import java.util.TreeMap;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import eu.aleon.aleoncean.device.local.LocalDeviceEEPF60201;
 import eu.aleon.aleoncean.device.local.LocalDeviceEEPF60202;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPA50205;
@@ -30,6 +22,12 @@ import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPF61000;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPF61001;
 import eu.aleon.aleoncean.packet.EnOceanId;
 import eu.aleon.aleoncean.rxtx.ESP3Connector;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.NavigableMap;
+import java.util.TreeMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Use this factory to create devices by their identifier.
