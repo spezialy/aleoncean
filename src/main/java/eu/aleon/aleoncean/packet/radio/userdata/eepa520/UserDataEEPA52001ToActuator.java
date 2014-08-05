@@ -214,7 +214,7 @@ public class UserDataEEPA52001ToActuator extends UserData4BS {
     }
 
     public Function getFunction() throws UserDataScaleValueException {
-        final int raw = (int) Bits.getBitsFromBytes(getUserData(), OFFSET_SPS, LENGTH_SPS);
+        final int raw = (int) Bits.getBitsFromBytes(getUserData(), OFFSET_RCU, LENGTH_RCU);
         switch (raw) {
             case 0:
                 return Function.RCU;
@@ -228,10 +228,10 @@ public class UserDataEEPA52001ToActuator extends UserData4BS {
     public void setFunction(final Function function) throws UserDataScaleValueException {
         switch (function) {
             case RCU:
-                Bits.setBitsOfBytes(0, getUserData(), OFFSET_SPS, LENGTH_SPS);
+                Bits.setBitsOfBytes(0, getUserData(), OFFSET_RCU, LENGTH_RCU);
                 return;
             case SERVICE_ON:
-                Bits.setBitsOfBytes(1, getUserData(), OFFSET_SPS, LENGTH_SPS);
+                Bits.setBitsOfBytes(1, getUserData(), OFFSET_RCU, LENGTH_RCU);
                 return;
             default:
                 throw new UserDataScaleValueException(String.format("Unhandled function: %s", function.toString()));
