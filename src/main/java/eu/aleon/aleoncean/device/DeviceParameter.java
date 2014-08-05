@@ -32,6 +32,8 @@ import java.util.List;
  * - SUPPLY_VOLTAGE_V: double, unit volt
  * - SWITCH: boolean, true: on, false: off
  * - TEMPERATURE_CELSIUS: double, temperature, unit degree Celsius
+ * - VALVE_POS_LAST: integer, the last received valve position
+ * - VALVE_POS_NEW: integer, the new to set valve position
  * - WINDOW_HANDLE_POSITION: WindowHandlePosition
  *
  * @author Markus Rathgeb <maggu2810@gmail.com>
@@ -49,6 +51,8 @@ public enum DeviceParameter {
     SUPPLY_VOLTAGE_V,
     SWITCH,
     TEMPERATURE_CELSIUS,
+    VALVE_POS_LAST,
+    VALVE_POS_NEW,
     WINDOW_HANDLE_POSITION;
 
     private static class Info {
@@ -92,6 +96,8 @@ public enum DeviceParameter {
                 new Info(DeviceParameter.SUPPLY_VOLTAGE_V, "SUPPLY_VOLTAGE_V", Double.class),
                 new Info(DeviceParameter.SWITCH, "SWITCH", Boolean.class),
                 new Info(DeviceParameter.TEMPERATURE_CELSIUS, "TEMPERATURE_CELSIUS", Double.class),
+                new Info(DeviceParameter.VALVE_POS_LAST, "VALVE_POS_LAST", Integer.class),
+                new Info(DeviceParameter.VALVE_POS_NEW, "VALVE_POS_NEW", Integer.class),
                 new Info(DeviceParameter.WINDOW_HANDLE_POSITION, "WINDOW_HANDLE_POSITION", WindowHandlePosition.class)
         ));
 

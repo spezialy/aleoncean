@@ -72,6 +72,14 @@ public class UserDataEEPA52001ToActuator extends UserData4BS {
     private static final int OFFSET_RCU = 23;
     private static final int LENGTH_RCU = 1;
 
+    public UserDataEEPA52001ToActuator() {
+        super();
+    }
+
+    public UserDataEEPA52001ToActuator(byte[] data) {
+        super(data);
+    }
+
     /**
      * Get the current valve position.
      *
