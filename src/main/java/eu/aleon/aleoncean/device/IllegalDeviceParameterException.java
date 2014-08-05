@@ -16,6 +16,8 @@ package eu.aleon.aleoncean.device;
  */
 public class IllegalDeviceParameterException extends Exception {
 
+    private static final long serialVersionUID = -7446981762480106959L;
+
     public IllegalDeviceParameterException() {
     }
 
