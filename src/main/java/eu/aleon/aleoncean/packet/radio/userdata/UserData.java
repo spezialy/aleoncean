@@ -137,8 +137,7 @@ public abstract class UserData {
      * @param scaleMin The lower limit of the scaled value.
      * @param scaleMax The upper limit of the scaled value.
      * @return Return a scaled value that does fit in given range.
-     * @throws UserDataScaleValueException This exception is raised if the value extracted from given bit range does
-     *                                     not fit in range.
+     * @throws UserDataScaleValueException This exception is raised if the given value does not fit in range.
      */
     protected double getScaleValue(long raw,
                                    long rangeMin, long rangeMax,
@@ -157,6 +156,17 @@ public abstract class UserData {
         return scale;
     }
 
+    /**
+     * Convert a value to a raw value with respect ranges.
+     *
+     * @param scale    The value that should be converted to a raw one.
+     * @param scaleMin The lower limit of the value.
+     * @param scaleMax The upper limit of the value.
+     * @param rangeMin The lower limit of the raw value.
+     * @param rangeMax The upper limit of the raw value.
+     * @return Return a raw value that does fit in given range.
+     * @throws UserDataScaleValueException This exception is raised if the given value does not fit in range.
+     */
     protected long getRangeValue(double scale,
                                  double scaleMin, double scaleMax,
                                  long rangeMin, long rangeMax)
