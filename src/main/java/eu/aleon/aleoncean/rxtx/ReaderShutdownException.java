@@ -16,4 +16,6 @@ package eu.aleon.aleoncean.rxtx;
  */
 public class ReaderShutdownException extends Exception {
 
+    private static final long serialVersionUID = -1405905679676209283L;
+
 }
