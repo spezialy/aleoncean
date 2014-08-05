@@ -10,8 +10,17 @@
  */
 package eu.aleon.aleoncean.device;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.NavigableMap;
+import java.util.TreeMap;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import eu.aleon.aleoncean.device.local.LocalDeviceEEPF60201;
 import eu.aleon.aleoncean.device.local.LocalDeviceEEPF60202;
+import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPA50205;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPA50401;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPA50802;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPD20108;
@@ -21,12 +30,6 @@ import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPF61000;
 import eu.aleon.aleoncean.device.remote.RemoteDeviceEEPF61001;
 import eu.aleon.aleoncean.packet.EnOceanId;
 import eu.aleon.aleoncean.rxtx.ESP3Connector;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NavigableMap;
-import java.util.TreeMap;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Use this factory to create devices by their identifier.
@@ -43,6 +46,7 @@ public class DeviceFactory {
 
     private static final String LD_F60201 = "LD_F6-02-01";
     private static final String LD_F60202 = "LD_F6-02-02";
+    private static final String RD_A50205 = "RD_A5-02-05";
     private static final String RD_A50401 = "RD_A5-04-01";
     private static final String RD_A50802 = "RD_A5-08-02";
     private static final String RD_D20108 = "RD_D2-01-08";
@@ -56,6 +60,7 @@ public class DeviceFactory {
     static {
         MAP.put(LD_F60201, LocalDeviceEEPF60201.class);
         MAP.put(LD_F60202, LocalDeviceEEPF60202.class);
+        MAP.put(RD_A50205, RemoteDeviceEEPA50205.class);
         MAP.put(RD_A50401, RemoteDeviceEEPA50401.class);
         MAP.put(RD_A50802, RemoteDeviceEEPA50802.class);
         MAP.put(RD_D20108, RemoteDeviceEEPD20108.class);
