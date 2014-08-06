@@ -20,6 +20,13 @@ public class UserData4BS extends UserData {
 
     public static final int DATA_LENGTH = 4;
 
+    private static final int TEACH_IN_DB = 0;
+    private static final int TEACH_IN_BIT = 3;
+
+    public static boolean isTeachIn(final byte[] userData) {
+        return getDataBit(userData, TEACH_IN_DB, TEACH_IN_BIT) == 0;
+    }
+
     public UserData4BS() {
         super(DATA_LENGTH);
     }
@@ -33,8 +40,8 @@ public class UserData4BS extends UserData {
         return isTeachIn(getUserData());
     }
 
-    public static boolean isTeachIn(final byte[] userData) {
-        return getDataBit(userData, 0, 3) == 0;
+    public void setTeachIn(final boolean teachIn) {
+        setDataBit(TEACH_IN_DB, TEACH_IN_BIT, teachIn ? 0 : 1);
     }
 
     @Override
