@@ -28,6 +28,47 @@ public class UserDataEEPA502 extends UserData4BS {
     private final double tempScaleMax;
     public static final Unit TEMPERATURE_UNIT = Unit.DEGREE_CELSIUS;
 
+    /**
+     * Class constructor specifying the values of
+     * the start byte and bit, the end byte and bit, the range and the scale.
+     *
+     * @param tempStartDB
+     * @param tempStartBit
+     * @param tempEndDB
+     * @param tempEndBit
+     * @param tempRangeMin
+     * @param tempRangeMax
+     * @param tempScaleMin
+     * @param tempScaleMax
+     */
+    public UserDataEEPA502(int tempStartDB, int tempStartBit, int tempEndDB, int tempEndBit,
+                           long tempRangeMin, long tempRangeMax,
+                           double tempScaleMin, double tempScaleMax) {
+        super();
+        this.tempStartDB = tempStartDB;
+        this.tempStartBit = tempStartBit;
+        this.tempEndDB = tempEndDB;
+        this.tempEndBit = tempEndBit;
+        this.tempRangeMin = tempRangeMin;
+        this.tempRangeMax = tempRangeMax;
+        this.tempScaleMin = tempScaleMin;
+        this.tempScaleMax = tempScaleMax;
+    }
+
+    /**
+     * Class constructor specifying the values of the eep data array,
+     * the start byte and bit, the end byte and bit, the range and the scale.
+     *
+     * @param eepData
+     * @param tempStartDB
+     * @param tempStartBit
+     * @param tempEndDB
+     * @param tempEndBit
+     * @param tempRangeMin
+     * @param tempRangeMax
+     * @param tempScaleMin
+     * @param tempScaleMax
+     */
     public UserDataEEPA502(byte[] eepData,
                            int tempStartDB, int tempStartBit, int tempEndDB, int tempEndBit,
                            long tempRangeMin, long tempRangeMax,
@@ -43,9 +84,28 @@ public class UserDataEEPA502 extends UserData4BS {
         this.tempScaleMax = tempScaleMax;
     }
 
+    /**
+     * Delivering the temperature value, which is current set in the user data.
+     *
+     * @return The temperature value of the user data.
+     * @throws UserDataScaleValueException
+     */
     public double getTemperature() throws UserDataScaleValueException {
         return getScaleValue(tempStartDB, tempStartBit, tempEndDB, tempEndBit,
                              tempRangeMin, tempRangeMax,
                              tempScaleMin, tempScaleMax);
+    }
+
+    /**
+     * Set the given temperature value to user data
+     *
+     * @param temperature The temperature value to be set in the user data
+     * @throws UserDataScaleValueException
+     */
+    public void setTemperature(double temperature) throws UserDataScaleValueException {
+        long range = getRangeValue(temperature, tempScaleMin, tempScaleMax,
+                                   tempRangeMin, tempRangeMax);
+        setDataRange(range, tempStartDB,
+                     tempStartBit, tempEndDB, tempEndBit);
     }
 }

@@ -19,6 +19,23 @@ public class UserDataEEPA502BitLength8 extends UserDataEEPA502 {
     private static final long TEMPERATURE_RANGE_MIN = 255;
     private static final long TEMPERATURE_RANGE_MAX = 0;
 
+    /**
+     * Class constructor specifying the values of the eep data array, the scale min and max value.
+     *
+     * @param tempScaleMin
+     * @param tempScaleMax
+     */
+    public UserDataEEPA502BitLength8(double tempScaleMin, double tempScaleMax){
+        super(1, 7, 1, 0, TEMPERATURE_RANGE_MIN, TEMPERATURE_RANGE_MAX, tempScaleMin, tempScaleMax);
+    }
+
+    /**
+     * Class constructor specifying the values of the eep data array, the scale min and max value.
+     *
+     * @param eepData
+     * @param tempScaleMin
+     * @param tempScaleMax
+     */
     public UserDataEEPA502BitLength8(byte[] eepData,
                                      double tempScaleMin, double tempScaleMax) {
         super(eepData, 1, 7, 1, 0, TEMPERATURE_RANGE_MIN, TEMPERATURE_RANGE_MAX, tempScaleMin, tempScaleMax);

@@ -19,6 +19,18 @@ public class UserDataEEPA50205 extends UserDataEEPA502BitLength8 {
     private static final double TEMPERATURE_SCALE_MIN = 0;
     private static final double TEMPERATURE_SCALE_MAX = 40;
 
+    /**
+     * Default class constructor
+     */
+    public UserDataEEPA50205(){
+        super(TEMPERATURE_SCALE_MIN, TEMPERATURE_SCALE_MAX);
+    }
+
+    /**
+     * Class constructor specifying the values of the eep data array.
+     *
+     * @param eepData
+     */
     public UserDataEEPA50205(byte[] eepData) {
         super(eepData, TEMPERATURE_SCALE_MIN, TEMPERATURE_SCALE_MAX);
     }
