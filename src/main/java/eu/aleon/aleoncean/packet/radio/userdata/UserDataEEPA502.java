@@ -105,7 +105,6 @@ public class UserDataEEPA502 extends UserData4BS {
     public void setTemperature(double temperature) throws UserDataScaleValueException {
         long range = getRangeValue(temperature, tempScaleMin, tempScaleMax,
                                    tempRangeMin, tempRangeMax);
-        setDataRange(range, tempStartDB,
-                     tempStartBit, tempEndDB, tempEndBit);
+        setDataRange(range, tempStartDB, tempStartBit, tempEndDB, tempEndBit);
     }
 }
